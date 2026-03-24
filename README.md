@@ -247,19 +247,6 @@ Fraud         FN         TP  (caught)
 - `feature_importance.png` - Top 10 features chart
 - `fraud_detection_results.png` - ROC curves, confusion matrix, precision-recall
 
-## Questions I Got Asked
-
-**Q: Why drop Time?**
-A: Time is just "second #5043 in the dataset." It's not a feature. Real features are "merchant category," "customer age," etc. (hidden in V1-V28).
-
-**Q: Why stratify the split?**
-A: Without stratification, you might randomly put all 492 frauds in training and none in test. Stratified split guarantees 0.17% fraud in both sets.
-
-**Q: Why only SMOTE training data, not test?**
-A: Test data is your "ground truth." If you fake it, you lie to yourself about performance. SMOTE only for teaching the model.
-
-**Q: Why not use accuracy?**
-A: On imbalanced data, accuracy is useless. A model predicting "always legitimate" gets 99.83% accuracy but catches zero fraud.
 
 **Q: Why does XGBoost have lower recall but I prefer it?**
 A: Precision improved 9x (6.2% → 56.6%) at cost of 6.7% recall drop. In production, fewer false alarms > catching every single fraud. Banks will accept 81% recall if it means customers aren't annoyed by false flags.
@@ -278,3 +265,6 @@ XGBoost nailed the balance for this problem.
 **Tools:** Python, scikit-learn, XGBoost, SMOTE, pandas
 **Model:** XGBoost (Gradient Boosting)
 **Best Result:** 81% recall, 57% precision, 0.97 ROC-AUC
+-----------------------------
+**Aurthor** Mandip Basnet
+**Batchlore In Computer Application** 
